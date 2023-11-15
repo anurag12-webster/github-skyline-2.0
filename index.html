@@ -28,7 +28,7 @@
     <script>
         async function getContributions() {
             const username = document.getElementById('username').value;
-            const token = ''; // Replace with your actual GitHub token
+            const token = ''; // Replace with GitHub token
     
             const headers = {
                 'Authorization': `Bearer ${token}`,
@@ -62,11 +62,11 @@
     
                 const data = await response.json();
     
-                // Extract contributionCount values
+                
                 const contributionCounts = data.data.user.contributionsCollection.contributionCalendar.weeks
                     .flatMap(week => week.contributionDays.map(day => day.contributionCount));
     
-                // Display the contribution counts (customize as needed)
+                
                 document.getElementById('contributions').innerText = `Contribution Counts: ${contributionCounts.join(', ')}`;
             } catch (error) {
                 console.error('Error:', error);
